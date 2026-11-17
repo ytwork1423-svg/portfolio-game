@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-pixel: 'Press Start 2P', monospace;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: #06060e;
+    color: #f4f4ff;
+  }
+}
+
+.font-pixel {
+  font-family: var(--font-pixel);
+  letter-spacing: 0.03em;
+}
+
+.font-mono-tab {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Crisp 16-bit stepped box border */
+.pixel-box {
+  border: 3px solid #22ff88;
+  box-shadow:
+    0 0 0 3px #06060e,
+    4px 4px 0 3px rgba(0, 0, 0, 0.75);
+}
+
+.pixel-box-pink {
+  border: 3px solid #ff3e9d;
+  box-shadow:
+    0 0 0 3px #06060e,
+    4px 4px 0 3px rgba(0, 0, 0, 0.75);
+}
+
+.pixel-box-gold {
+  border: 3px solid #ffd93d;
+  box-shadow:
+    0 0 0 3px #06060e,
+    4px 4px 0 3px rgba(0, 0, 0, 0.75);
+}
+
+.pixel-window-retro {
+  background-color: #f8dff0;
+  color: #161129;
+  border: 3px solid #161129;
+  box-shadow:
+    inset 0 0 0 2px #ffffff,
+    6px 6px 0 0 #ff3e9d;
+}
+
+.pixel-btn {
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.pixel-btn:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+}
+
+.pixel-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+}
+
+/* Subtle CRT scanline overlay (very light so readability stays crisp) */
+.crt-scanlines {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.12) 50%
+  );
+  background-size: 100% 4px;
+}
+
+/* Custom subtle scrollbars for modals */
+.retro-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.retro-scroll::-webkit-scrollbar-track {
+  background: #121126;
+}
+
+.retro-scroll::-webkit-scrollbar-thumb {
+  background: #5b45b8;
+  border: 2px solid #121126;
+}
+
+.retro-scroll::-webkit-scrollbar-thumb:hover {
+  background: #ff3e9d;
+}
+
+/* Game Boy Retro Palette filter when secret cheat mode is toggled */
+.gb-palette-mode canvas {
+  filter: sepia(100%) hue-rotate(55deg) saturate(210%) contrast(108%);
+}
+
+@keyframes titleRgbPulse {
+  0%, 91%, 100% {
+    text-shadow:
+      4px 4px 0 #38BDF8,
+      7px 7px 0 #191536,
+      0 0 28px rgba(255, 62, 157, 0.35);
+    transform: translate(0, 0);
+  }
+  93% {
+    text-shadow:
+      -3px 0 0 #38BDF8,
+      4px 2px 0 #22FF88,
+      6px 6px 0 #191536;
+    transform: translate(1px, 0);
+  }
+  95% {
+    text-shadow:
+      3px 0 0 #FF3E9D,
+      -2px 3px 0 #38BDF8,
+      5px 5px 0 #191536;
+    transform: translate(-1px, 0);
+  }
+  97% {
+    text-shadow:
+      4px 4px 0 #38BDF8,
+      7px 7px 0 #191536,
+      0 0 28px rgba(255, 62, 157, 0.35);
+    transform: translate(0, 0);
+  }
+}
+
+.portfolio-hero-title {
+  animation: titleRgbPulse 5.5s infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.pixel-cursor-blink {
+  animation: cursorBlink 0.9s steps(1, end) infinite;
+}
+
+/* 3D Extruded Pixel Title matching GAME BRAIN poster reference */
+.text-pixel-3d {
+  color: #fffdf7;
+  text-shadow:
+    0 2px 0 #ff9f1c,
+    0 4px 0 #ff7b00,
+    0 6px 0 #f43f00,
+    0 8px 0 #b81d00,
+    4px 10px 0 #14083b;
+}
+
+.text-pixel-3d-pink {
+  color: #fffdf7;
+  text-shadow:
+    0 2px 0 #ff75b5,
+    0 4px 0 #ff2e88,
+    0 6px 0 #b80d57,
+    3px 8px 0 #14083b;
+}
+
+.arcade-halftone {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+}
+
+.arcade-sky-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.pixel-polaroid {
+  background-color: #fffdf5;
+  color: #150c36;
+  border: 3px solid #150c36;
+  box-shadow: 6px 6px 0 0 #150c36;
+}
+
+.pixel-arcade-cabinet {
+  background: linear-gradient(180deg, #e02430 0%, #b51422 100%);
+  border: 3px solid #150c36;
+  box-shadow: 6px 6px 0 0 #150c36;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

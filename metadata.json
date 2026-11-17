@@ -1,0 +1,6 @@
+{
+  "name": "Design Quest — Meera Manoj Portfolio",
+  "description": "An interactive 2D retro adventure game portfolio for UI/UX and Visual Designer Meera Manoj. Explore levels, unlock RPG skills, inspect design quests, and battle UX friction.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
